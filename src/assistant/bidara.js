@@ -99,14 +99,19 @@ Most recent updated date: ${formattedDate}
 
 const BIO_WEB_SEARCH = {
   ...WEB_SEARCH_FUNC,
-  description: WEB_SEARCH_FUNC.description + "MUST be bio or engineering related, or directly relevant to the discussion. DO NOT search for anything else outside of these domains."
+  description: WEB_SEARCH_FUNC.description + " MUST be bio or engineering related, or directly relevant to the discussion. DO NOT search for anything else outside of these domains."
+}
+
+const BIO_TEXT_TO_IMAGE = {
+  ...TEXT_TO_IMAGE,
+  description: TEXT_TO_IMAGE.description + " Should be bio or engineering related, generally not random things."
 }
 
 export const FUNCTIONS = [
   { type: "code_interpreter" },
   { type: "file_search" },
   { type: "function", function: PAPER_SEARCH_FUNC },
-  { type: "function", function: TEXT_TO_IMAGE },
+  { type: "function", function: BIO_TEXT_TO_IMAGE },
   { type: "function", function: IMAGE_TO_TEXT },
   { type: "function", function: GET_FILE_TYPE },
   { type: "function", function: GET_IMAGE_PATTERNS },
